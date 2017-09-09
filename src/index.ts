@@ -28,6 +28,9 @@ namespace CommandIDs {
 
   export
   const logout: string = 'hub:logout';
+  
+  export
+  const tensorBoard: string = 'hub:tensor-board';
 };
 
 
@@ -60,6 +63,15 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
     }
   });
 
+  
+  commands.addCommand(CommandIDs.tensorBoard, {
+    label: 'Tensor Board',
+    caption: 'Open tensor board in a new browser tab',
+    execute: () => {
+      window.open('10.125.0.137:32006', '_blank');
+    }
+  });
+
   commands.addCommand(CommandIDs.logout, {
     label: 'Logout',
     caption: 'Log out of the Hub',
@@ -73,6 +85,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
   menu.title.label = category;
   [
     CommandIDs.controlPanel,
+    CommandIDs.tensorBoard,
     CommandIDs.logout,
   ].forEach(command => {
     palette.addItem({ command, category });
