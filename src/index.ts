@@ -68,7 +68,7 @@ function activateHubExtension(app: JupyterLab, palette: ICommandPalette, mainMen
     label: 'Tensor Board',
     caption: 'Open tensor board in a new browser tab',
     execute: () => {
-      window.open(hubHost + URLExt.join(hubPrefix, 'home'), '_blank');
+      window.open('http://10.125.0.137:32006', '_blank');
     }
   });
 
